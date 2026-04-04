@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://digizyn83.github.io/samiracoach/sitemap.xml
