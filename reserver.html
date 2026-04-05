@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réserver une séance — Samira Coach</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F8F3EC;
+  --cream2:#F2EBE0;
+  --olive:#4A5530;
+  --olive2:#6B7A4A;
+  --olive-light:#E4EAD8;
+  --terra:#B8552F;
+  --terra2:#CF6E47;
+  --terra-light:#F0D5C5;
+  --blush:#E8C4B0;
+  --dark:#1A1612;
+  --dark2:#2E2921;
+  --mid:#6B6158;
+  --light:#A89E94;
+  --border:rgba(74,85,48,0.14);
+  --fs:'Cormorant Garamond',Georgia,serif;
+  --ff:'Jost',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{
+  font-family:var(--ff);
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.7;
+  font-weight:300;
+  min-height:100vh;
+}
+
+/* GRAIN */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.038;pointer-events:none;z-index:9998;
+}
+
+/* PAGE LAYOUT */
+.page-wrap{
+  max-width:760px;
+  margin:0 auto;
+  padding:2rem 1.5rem 5rem;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  font-family:var(--ff);
+  font-size:0.85rem;
+  font-weight:400;
+  color:var(--terra);
+  text-decoration:none;
+  border:1.5px solid var(--terra-light);
+  padding:0.6rem 1.4rem;
+  border-radius:50px;
+  transition:all 0.25s;
+  margin-bottom:2.5rem;
+  letter-spacing:0.03em;
+}
+.back-btn:hover{
+  background:var(--terra-light);
+  border-color:var(--terra);
+}
+.back-btn svg{
+  width:14px;height:14px;
+  stroke:currentColor;fill:none;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* PAGE HEADER */
+.booking-header{
+  text-align:center;
+  margin-bottom:2.5rem;
+}
+.booking-header h1{
+  font-family:var(--fs);
+  font-size:clamp(2rem, 6vw, 3rem);
+  font-weight:600;
+  color:var(--dark);
+  line-height:1.15;
+  margin-bottom:0.75rem;
+}
+.booking-header h1 em{
+  color:var(--terra);
+  font-style:italic;
+}
+.booking-header p{
+  font-size:0.95rem;
+  color:var(--mid);
+  max-width:480px;
+  margin:0 auto;
+}
+.header-divider{
+  width:60px;height:2px;
+  background:linear-gradient(90deg,var(--terra),var(--blush));
+  border-radius:2px;
+  margin:1.5rem auto 0;
+}
+
+/* SERVICE CARD */
+.service-card{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  padding:1.1rem 1.4rem;
+  margin-bottom:2rem;
+  box-shadow:0 2px 12px rgba(26,22,18,0.05);
+}
+.service-icon{
+  width:44px;height:44px;
+  background:var(--terra-light);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  flex-shrink:0;
+}
+.service-info{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:0.15rem;
+}
+.service-info strong{
+  font-family:var(--ff);
+  font-size:0.95rem;
+  font-weight:500;
+  color:var(--dark);
+}
+.service-meta{
+  font-size:0.8rem;
+  color:var(--mid);
+  font-weight:300;
+}
+.check-icon{
+  width:20px;height:20px;
+  background:var(--olive);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  margin-right:0.25rem;
+}
+.check-icon svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.change-link{
+  font-size:0.78rem;
+  color:var(--terra);
+  text-decoration:underline;
+  text-underline-offset:2px;
+  cursor:pointer;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.change-link:hover{color:var(--terra2)}
+
+/* TRUST BADGES */
+.trust-badges{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0.75rem;
+  margin-bottom:2.5rem;
+}
+@media(max-width:500px){
+  .trust-badges{grid-template-columns:1fr}
+}
+.badge{
+  display:flex;
+  align-items:center;
+  gap:0.65rem;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:0.75rem 1rem;
+  font-size:0.78rem;
+  font-weight:400;
+  color:var(--dark2);
+  line-height:1.4;
+}
+.badge-icon{
+  font-size:1rem;
+  flex-shrink:0;
+}
+
+/* CALENDAR SECTION */
+.cal-section{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 24px rgba(26,22,18,0.06);
+}
+.cal-section-header{
+  padding:1.4rem 1.6rem 0;
+  border-bottom:1px solid var(--border);
+  padding-bottom:1.2rem;
+}
+.cal-section-header h2{
+  font-family:var(--fs);
+  font-size:1.5rem;
+  font-weight:600;
+  color:var(--dark);
+}
+.cal-section-header p{
+  font-size:0.82rem;
+  color:var(--mid);
+  margin-top:0.2rem;
+}
+#cal-booking{
+  min-height:600px;
+}
+
+/* FOOTER NOTE */
+.footer-note{
+  text-align:center;
+  margin-top:2rem;
+  font-size:0.75rem;
+  color:var(--light);
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- RETOUR -->
+  <a href="index.html#offres-ponctuelles" class="back-btn" id="back-link">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Retour aux accompagnements
+  </a>
+
+  <!-- HEADER -->
+  <div class="booking-header">
+    <h1>Réservez votre <em>séance</em></h1>
+    <p>Un accompagnement personnalisé, confidentiel et ancré dans les valeurs islamiques</p>
+    <div class="header-divider"></div>
+  </div>
+
+  <!-- SERVICE CARD -->
+  <div class="service-card">
+    <div class="service-icon">🌸</div>
+    <div class="service-info">
+      <strong id="service-name">La Consultation</strong>
+      <span class="service-meta" id="service-meta">1h30 · 90€</span>
+    </div>
+    <div class="check-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <a href="index.html#offres-ponctuelles" class="change-link">Changer</a>
+  </div>
+
+  <!-- TRUST BADGES -->
+  <div class="trust-badges">
+    <div class="badge">
+      <span class="badge-icon">🔒</span>
+      <span>Paiement sécurisé<br><strong>Stripe</strong></span>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">⏰</span>
+      <span>Annulation possible<br><strong>jusqu'à 48h avant</strong></span>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">📧</span>
+      <span>Confirmation<br><strong>par mail immédiat</strong></span>
+    </div>
+    <div class="badge">
+      <span class="badge-icon">📱</span>
+      <span>Séance par<br><strong>visioconférence ou téléphone</strong></span>
+    </div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="cal-section">
+    <div class="cal-section-header">
+      <h2>1. Choisissez une date</h2>
+      <p id="cal-avail-text">Chargement des disponibilités…</p>
+    </div>
+    <div id="cal-booking"></div>
+  </div>
+
+  <p class="footer-note">Tu recevras un email de confirmation avec tous les détails de ta séance.</p>
+
+</div>
+
+<!-- CAL.EU EMBED -->
+<script type="text/javascript">
+(function(C,A,L){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.eu/embed/embed.js","init");
+Cal("init",{origin:"https://app.cal.eu"});
+</script>
+
+<script>
+// ── Services disponibles ──
+var SERVICES = {
+  'formule-declic':   { name:'Formule Déclic',     meta:'1h30 · 130€',         avail:'Séance individuelle · 1h30' },
+  'la-consultation':  { name:'La Consultation',    meta:'1h30 · 90€',          avail:'Séance individuelle · 1h30' },
+  'l-appel-d-urgence':{ name:"L'Appel d'Urgence",  meta:'1h · 30€',            avail:'Appel · 1 heure' },
+  'realise-toi':      { name:'Réalise-toi',        meta:'1 mois · 300€',       avail:'Coaching · 1 mois' },
+  'transforme-toi':   { name:'Transforme-toi',     meta:'3 mois · 600€',       avail:'Coaching · 3 mois' },
+  'seance-decouverte':{ name:'Séance Découverte',  meta:'30 min · Gratuit',    avail:'Appel découverte · 30 min' }
+};
+
+// ── Lire le param URL ──
+var params = new URLSearchParams(window.location.search);
+var slug = params.get('seance') || 'la-consultation';
+var svc = SERVICES[slug] || SERVICES['la-consultation'];
+
+// ── Mettre à jour la carte service ──
+document.getElementById('service-name').textContent = svc.name;
+document.getElementById('service-meta').textContent = svc.meta;
+document.getElementById('cal-avail-text').textContent = svc.avail;
+
+// ── Titre de la page ──
+document.title = 'Réserver — ' + svc.name + ' · Samira Coach';
+
+// ── Lien retour adapté ──
+var backEl = document.getElementById('back-link');
+if (slug === 'realise-toi' || slug === 'transforme-toi') {
+  backEl.href = 'index.html#offres-cards';
+}
+
+// ── Charger le calendrier Cal.eu ──
+Cal("inline", {
+  elementOrSelector: "#cal-booking",
+  calLink: "samiracoach/" + slug,
+  config: { layout: "month_view", theme: "light" }
+});
+</script>
+
+</body>
+</html>
