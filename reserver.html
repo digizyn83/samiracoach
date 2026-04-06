@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.eu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://app.cal.eu; connect-src https://app.cal.eu;">
 <title>Réserver une séance — Samira Coach</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -315,7 +316,8 @@ var SERVICES = {
 // ── Lire le param URL ──
 var params = new URLSearchParams(window.location.search);
 var slug = params.get('seance') || 'la-consultation';
-var svc = SERVICES[slug] || SERVICES['la-consultation'];
+if (!SERVICES.hasOwnProperty(slug)) { slug = 'la-consultation'; }
+var svc = SERVICES[slug];
 
 // ── Mettre à jour la carte service ──
 document.getElementById('service-name').textContent = svc.name;
