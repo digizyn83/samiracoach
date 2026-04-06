@@ -1741,48 +1741,11 @@ footer p{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
   <p>© 2025 Samira Ben Bahou · Tous droits réservés</p>
 </footer>
 
-<!-- Modale paiement PayPal après réservation -->
-<div id="pay-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.55);align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:20px;padding:2.5rem 2rem;max-width:420px;width:90%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.2);position:relative;">
-    <button onclick="document.getElementById('pay-modal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;cursor:pointer;color:#999;">✕</button>
-    <div style="font-size:2.2rem;margin-bottom:0.5rem;">✅</div>
-    <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;margin:0 0 0.5rem;color:#2a2018;">Réservation confirmée !</h3>
-    <p style="color:#6b6159;font-size:0.95rem;margin:0 0 1.5rem;">Pour finaliser ta réservation, merci de procéder au paiement :</p>
-    <a id="pay-link" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#b8552f;color:#fff;font-family:'Jost',sans-serif;font-size:1rem;font-weight:600;padding:15px 36px;border-radius:50px;text-decoration:none;box-shadow:0 8px 24px rgba(184,85,47,0.35);">Payer via PayPal →</a>
-    <p id="pay-amount" style="margin:1rem 0 0;color:#b8552f;font-weight:600;font-size:1.1rem;"></p>
-    <p style="margin:0.5rem 0 0;color:#aaa;font-size:0.8rem;">Tu recevras aussi un email de confirmation de Cal.eu</p>
-  </div>
-</div>
-
 <!-- Cal.eu embed -->
 <script type="text/javascript">
 (function(C,A,L){let p=function(a,ar){a.q.push(ar);};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){const api=function(){p(api,arguments);};const namespace=ar[1];api.q=api.q||[];typeof namespace==="string"?(cal.ns[namespace]=api)&&p(api,ar):p(cal,ar);return;}p(cal,ar);};})(window,"https://app.cal.eu/embed/embed.js","init");
 Cal("init",{origin:"https://app.cal.eu"});
 Cal("ui",{theme:"light",hideEventTypeDetails:false,layout:"month_view"});
-
-/* Détection réservation → afficher lien PayPal */
-var _payLinks = {
-  "formule-declic":   {label:"Formule Déclic — 130€",  url:"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=samiracoach%40yahoo.com&item_name=Formule+Declic&amount=130&currency_code=EUR&no_shipping=1"},
-  "la-consultation":  {label:"La Consultation — 90€",   url:"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=samiracoach%40yahoo.com&item_name=La+Consultation&amount=90&currency_code=EUR&no_shipping=1"},
-  "l-appel-d-urgence":{label:"L'Appel d'Urgence — 30€", url:"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=samiracoach%40yahoo.com&item_name=L%27Appel+d%27Urgence&amount=30&currency_code=EUR&no_shipping=1"},
-  "realise-toi":      {label:"Réalise-toi — 300€",      url:"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=samiracoach%40yahoo.com&item_name=Realise-toi&amount=300&currency_code=EUR&no_shipping=1"},
-  "transforme-toi":   {label:"Transforme-toi — 600€",   url:"https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=samiracoach%40yahoo.com&item_name=Transforme-toi&amount=600&currency_code=EUR&no_shipping=1"}
-};
-Cal("on", {
-  action: "bookingSuccessful",
-  callback: function(e) {
-    var slug = (e && e.detail && e.detail.data && e.detail.data.eventType && e.detail.data.eventType.slug) || "";
-    var info = _payLinks[slug];
-    if (!info) {
-      /* slug inconnu : chercher par correspondance partielle */
-      for (var k in _payLinks) { if (slug.indexOf(k) !== -1 || k.indexOf(slug) !== -1) { info = _payLinks[k]; break; } }
-    }
-    if (!info) info = {label:"Paiement", url:"https://www.paypal.com/paypalme/samiracoach"};
-    document.getElementById("pay-link").href = info.url;
-    document.getElementById("pay-amount").textContent = info.label;
-    document.getElementById("pay-modal").style.display = "flex";
-  }
-});
 
 /* Navigation vers la page de réservation dédiée */
 function reserverSeance(slug) {
