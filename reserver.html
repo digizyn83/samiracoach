@@ -271,7 +271,7 @@ body::after{
     </div>
     <div class="badge">
       <span class="badge-icon">⏰</span>
-      <span>Annulation possible<br><strong>jusqu'à 48h avant</strong></span>
+      <span>Annulation possible<br><strong>jusqu'à 24h avant</strong></span>
     </div>
     <div class="badge">
       <span class="badge-icon">📧</span>
@@ -286,7 +286,7 @@ body::after{
   <!-- CALENDAR -->
   <div class="cal-section">
     <div class="cal-section-header">
-      <h2>1. Choisissez une date</h2>
+      <h2>1. Choisis une date</h2>
       <p id="cal-avail-text">Chargement des disponibilités…</p>
     </div>
     <div id="cal-booking"></div>
@@ -337,7 +337,7 @@ if (slug === 'realise-toi' || slug === 'transforme-toi') {
 Cal("inline", {
   elementOrSelector: "#cal-booking",
   calLink: "samiracoach/" + slug,
-  config: { layout: "month_view", theme: "light" }
+  config: { layout: "month_view", theme: "light", timezone: "Europe/Paris" }
 });
 </script>
 
