@@ -224,20 +224,6 @@ body::after{
   min-height:600px;
   position:relative;
 }
-#cal-details-cover{
-  display:none;
-}
-@media(min-width:600px){
-  #cal-details-cover{
-    display:block;
-    position:absolute;
-    top:0;left:0;
-    width:270px;
-    bottom:0;
-    background:#fff;
-    z-index:10;
-  }
-}
 
 /* FOOTER NOTE */
 .footer-note{
@@ -349,11 +335,6 @@ if (slug === 'realise-toi' || slug === 'transforme-toi') {
   backEl.href = 'index.html#offres-cards';
 }
 
-// ── Masquer panneau gauche Cal.eu (prix, timezone) ──
-setTimeout(function(){
-  var el=document.getElementById('cal-booking');
-  if(el){var c=document.createElement('div');c.id='cal-details-cover';el.appendChild(c);}
-},2000);
 
 // ── Charger le calendrier Cal.eu ──
 Cal("inline", {
