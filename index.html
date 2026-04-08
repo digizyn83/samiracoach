@@ -469,19 +469,11 @@ nav.scrolled{
   transition:all .4s ease;
   position:relative;overflow:hidden;
 }
-.fw-card::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;
-  height:2px;background:linear-gradient(90deg,var(--terra),var(--olive2));
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .4s ease;
-}
 .fw-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px)}
-.fw-card:hover::after{transform:scaleX(1)}
 .fw-number{
   font-family:var(--fs);
   font-size:52px;font-weight:300;font-style:italic;
-  color:rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.4);
   line-height:1;
   margin-bottom:1rem;
 }
