@@ -746,12 +746,12 @@ nav.scrolled{
 .p-n{
   font-family:var(--fs);
   font-size:100px;font-weight:300;font-style:italic;
-  color:rgba(255,255,255,0.08);
+  color:rgba(255,255,255,0.35);
   line-height:1;
   text-align:right;
   transition:color .4s;
 }
-.p-step:hover .p-n{color:rgba(184,85,47,0.3)}
+.p-step:hover .p-n{color:rgba(184,85,47,0.5)}
 .p-content{padding-top:1rem}
 .p-content h3{
   font-family:var(--fs);
@@ -1179,7 +1179,7 @@ footer p{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
   .marquee-track span{font-size:13px;padding:0 1.5rem}
   .statement{padding:3.5rem 1.2rem}
   .statement-img{aspect-ratio:16/9}
-  .stats-inner{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .stats-inner{grid-template-columns:1fr;gap:1.5rem}
   .stat-number{font-size:clamp(36px,10vw,52px)}
   .for-who{padding:3rem 1.2rem}
   .fw-card{padding:2rem 1.5rem}
@@ -1270,7 +1270,7 @@ footer p{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
         <a href="#accompagnements-titre" class="btn-terra" style="margin-top:2rem;display:inline-block">Voir mes accompagnements →</a>
       </div>
       <div class="video-player-wrap reveal reveal-delay-1">
-        <video controls preload="auto" playsinline class="video-player">
+        <video controls preload="auto" playsinline poster="og-image.jpg" class="video-player">
           <source src="presentation-samira.mp4" type="video/mp4">
         </video>
       </div>
