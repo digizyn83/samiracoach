@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} — Samira Coach</title>
+<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+{% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
+<meta property="og:locale" content="fr_FR">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══ Design System ═══ */
+:root {
+  --cream: #F8F3EC;
+  --cream2: #F2EBE0;
+  --olive: #7B7E6D;
+  --olive2: #6B7A4A;
+  --olive-light: #E4EAD8;
+  --terra: #B8552F;
+  --terra2: #9E4726;
+  --terra-light: #F0D5C5;
+  --blush: #E8C4B0;
+  --dark: #1A1612;
+  --dark2: #2E2921;
+  --mid: #6B6158;
+  --light: #A89E94;
+  --border: rgba(74,85,48,0.14);
+  --fs: 'Cormorant Garamond', Georgia, serif;
+  --ff: 'Jost', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--ff);
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.7;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* Grain */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ═══ Navigation ═══ */
+.blog-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3.5rem;
+  background: rgba(248,243,236,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-nav .logo {
+  font-family: var(--fs);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--dark);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.blog-nav .logo span {
+  color: var(--terra);
+}
+
+.blog-nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.blog-nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.blog-nav-links a:hover {
+  color: var(--dark);
+}
+
+/* ═══ Article ═══ */
+.post-header {
+  max-width: 800px;
+  margin: 4rem auto 2rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.post-meta {
+  font-size: 13px;
+  color: var(--light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.post-header h1 {
+  font-family: var(--fs);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.post-cover {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.post-cover img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+/* ═══ Contenu ═══ */
+.post-content {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+}
+
+.post-content h2 {
+  font-family: var(--fs);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--dark);
+  margin: 2.5rem 0 1rem;
+  line-height: 1.2;
+}
+
+.post-content h3 {
+  font-family: var(--fs);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--dark2);
+  margin: 2rem 0 0.8rem;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+  color: var(--dark2);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.post-content strong {
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.post-content em {
+  color: var(--terra2);
+}
+
+.post-content ul, .post-content ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--dark2);
+}
+
+.post-content a {
+  color: var(--terra);
+  text-decoration: underline;
+  text-decoration-color: var(--terra-light);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.post-content a:hover {
+  color: var(--terra2);
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--olive);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--cream2);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--mid);
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 14px;
+  margin: 1.5rem 0;
+}
+
+/* ═══ Separateur ═══ */
+.post-separator {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.post-separator hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+/* ═══ Retour ═══ */
+.post-back {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.post-back a {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--olive);
+  text-decoration: none;
+  padding: 12px 28px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.04em;
+}
+
+.post-back a:hover {
+  background: var(--olive);
+  color: white;
+  border-color: var(--olive);
+}
+
+/* ═══ Footer ═══ */
+.blog-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--light);
+  font-size: 13px;
+}
+
+.blog-footer a {
+  color: var(--mid);
+  text-decoration: none;
+  margin: 0 0.8rem;
+  transition: color 0.2s;
+}
+
+.blog-footer a:hover {
+  color: var(--dark);
+}
+
+.blog-footer .foot-logo {
+  font-family: var(--fs);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.blog-footer .foot-logo span {
+  color: var(--terra);
+}
+
+.blog-footer p {
+  margin-top: 1rem;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 768px) {
+  .blog-nav {
+    padding: 1rem 1.5rem;
+  }
+  .blog-nav-links {
+    gap: 1.2rem;
+  }
+  .blog-nav-links a {
+    font-size: 12px;
+  }
+  .post-header {
+    margin-top: 2.5rem;
+  }
+  .post-header h1 {
+    font-size: 32px;
+  }
+  .post-cover img {
+    height: 250px;
+    border-radius: 14px;
+  }
+  .post-content h2 {
+    font-size: 26px;
+  }
+  .post-content h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-nav {
+    padding: 0.8rem 1rem;
+  }
+  .blog-nav .logo {
+    font-size: 18px;
+  }
+  .blog-nav-links {
+    gap: 0.8rem;
+  }
+  .post-header h1 {
+    font-size: 26px;
+  }
+  .post-cover img {
+    height: 200px;
+    border-radius: 10px;
+  }
+  .post-content {
+    padding: 0 1.2rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="blog-nav">
+  <a href="/" class="logo">Samira <span>Coach</span></a>
+  <ul class="blog-nav-links">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/blog">Blog</a></li>
+  </ul>
+</nav>
+
+<!-- Article -->
+<header class="post-header">
+  <p class="post-meta">{{ page.date | date: "%d %B %Y" }}</p>
+  <h1>{{ page.title }}</h1>
+</header>
+
+{% if page.image %}
+<div class="post-cover">
+  <img src="{{ page.image }}" alt="{{ page.title }}">
+</div>
+{% endif %}
+
+<article class="post-content">
+  {{ content }}
+</article>
+
+<div class="post-separator"><hr></div>
+
+<div class="post-back">
+  <a href="/blog">&#8592; Retour au blog</a>
+</div>
+
+<!-- Footer -->
+<footer class="blog-footer">
+  <div class="foot-logo">Samira <span>Coach</span></div>
+  <div>
+    <a href="/mentions-legales.html">Mentions legales</a>
+    <a href="/confidentialite.html">Confidentialite</a>
+    <a href="/cgv.html">CGV</a>
+  </div>
+  <p>&copy; 2025 Samira Ben Bahou &middot; Tous droits reserves</p>
+</footer>
+
+</body>
+</html>

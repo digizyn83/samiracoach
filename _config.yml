@@ -1,0 +1,25 @@
+# Jekyll config minimal pour samiracoach.fr
+title: "Samira Coach — Femme, foi & équilibre"
+description: "Blog de Samira Ben Bahou, coach musulmane"
+url: "https://samiracoach.fr"
+baseurl: ""
+
+# Garder index.html tel quel (pas de front matter = pas traité par Liquid)
+exclude:
+  - README.md
+  - CNAME
+  - .claude
+
+# Permalink des articles
+permalink: /blog/:year/:month/:day/:title/
+
+# Markdown
+markdown: kramdown
+
+# Defaults pour les posts
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
