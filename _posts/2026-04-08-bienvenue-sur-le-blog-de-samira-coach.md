@@ -2,7 +2,7 @@
 layout: post
 title: "Bienvenue sur le blog de Samira Coach"
 date: 2026-04-08
-image: /uploads/blog-bienvenue.jpg
+image: https://images.pexels.com/photos/19342306/pexels-photo-19342306.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
 excerpt: "Un espace pour partager, inspirer et grandir ensemble. Bienvenue sur ce blog dedié aux femmes qui souhaitent retrouver l'harmonie dans leur vie."
 ---
 
@@ -33,7 +33,7 @@ Ce blog sera un lieu de **partage**, de **réflexion** et d'**inspiration**. Tu 
 
 N'hésite pas à revenir régulièrement, je publierai de nouveaux articles pour t'accompagner dans ton cheminement.
 
-Et si tu sens que tu as besoin d'un accompagnement plus personnalisé, tu peux toujours [réserver une séance découverte gratuite](https://samiracoach.fr/#offres-ponctuelles).
+Et si tu sens que tu as besoin d'un accompagnement plus personnalisé, tu peux [découvrir mes accompagnements](https://samiracoach.fr/#offres-ponctuelles).
 
 Qu'Allah nous guide toutes vers le meilleur. 🤲
 

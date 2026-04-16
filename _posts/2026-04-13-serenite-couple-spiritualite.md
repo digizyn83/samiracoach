@@ -51,7 +51,7 @@ Mais **la spiritualité, c'est ton socle**. C'est ce qui te permet de tenir debo
 
 Sache que demander de l'aide n'est pas un échec. C'est même une preuve de **sagesse et de courage**. C'est aussi pour ça que je suis là.
 
-Si tu sens que tu as besoin d'être accompagnée pour traverser cette étape, [réserve une séance découverte gratuite](https://samiracoach.fr/#offres-ponctuelles). On en parle ensemble, sans engagement.
+Si tu sens que tu as besoin d'être accompagnée pour traverser cette étape, viens [découvrir mes accompagnements](https://samiracoach.fr/#offres-ponctuelles). Tu y trouveras la formule qui te correspond.
 
 Qu'Allah préserve ton couple, qu'Il l'enveloppe de Sa miséricorde et qu'Il fasse de ton foyer un jardin de paix. 🤲
 

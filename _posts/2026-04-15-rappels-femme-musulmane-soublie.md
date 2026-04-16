@@ -54,7 +54,7 @@ Tu es précieuse. Tu es importante. Et tu mérites toi aussi de la douceur, du r
 
 Si tu sens que tu as besoin d'un espace pour souffler, te recentrer et **reprendre ta vie en main** avec bienveillance, je suis là.
 
-[Réserve ta séance découverte gratuite](https://samiracoach.fr/#offres-ponctuelles) — on prendra le temps d'en parler ensemble, sans jugement.
+Viens [découvrir mes accompagnements](https://samiracoach.fr/#offres-ponctuelles) — on prendra le temps de trouver la formule qui te correspond.
 
 Qu'Allah te donne la force, la lumière et la paix. 🤲
 

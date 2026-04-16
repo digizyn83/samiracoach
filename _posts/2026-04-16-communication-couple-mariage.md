@@ -60,7 +60,7 @@ Parfois, malgré toutes les bonnes volontés, on tourne en rond. On répète les
 
 C'est dans ces moments-là qu'**un regard extérieur** peut tout débloquer. Pas pour te dire ce qu'il faut faire, mais pour t'aider à voir ce que tu ne vois plus, et à mettre en place les bons outils.
 
-Si tu sens que ton couple a besoin d'un peu d'air frais, [réserve une séance découverte gratuite](https://samiracoach.fr/#offres-ponctuelles). On en parle, sans engagement.
+Si tu sens que ton couple a besoin d'un peu d'air frais, viens [découvrir mes accompagnements](https://samiracoach.fr/#offres-ponctuelles). Tu trouveras la formule qui te correspond.
 
 Qu'Allah mette de la baraka dans ton mariage et fasse de votre union une source de paix mutuelle. 🤲
 
