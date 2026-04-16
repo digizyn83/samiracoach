@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bienvenue sur le blog de Samira Coach"
-date: 2026-04-08
+date: 2026-04-17
 image: https://images.pexels.com/photos/19342306/pexels-photo-19342306.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
 excerpt: "Un espace pour partager, inspirer et grandir ensemble. Bienvenue sur ce blog dedié aux femmes qui souhaitent retrouver l'harmonie dans leur vie."
 ---
