@@ -2,7 +2,7 @@
 layout: post
 title: "Quand la communication devient ton meilleur allié dans le mariage"
 date: 2026-04-16
-image: https://images.pexels.com/photos/8487181/pexels-photo-8487181.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
+image: https://images.pexels.com/photos/11795901/pexels-photo-11795901.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
 excerpt: "La plupart des conflits dans le couple ne viennent pas du manque d'amour, mais du manque de communication. Voici comment transformer tes échanges avec ton mari."
 ---
 
