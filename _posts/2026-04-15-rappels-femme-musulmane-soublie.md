@@ -2,7 +2,7 @@
 layout: post
 title: "5 rappels pour la femme musulmane qui s'oublie au quotidien"
 date: 2026-04-15
-image: https://images.pexels.com/photos/20789234/pexels-photo-20789234.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
+image: https://images.pexels.com/photos/8164574/pexels-photo-8164574.jpeg?auto=compress&cs=tinysrgb&w=1200&q=85
 excerpt: "Mère, épouse, fille, sœur, amie... Tu donnes tellement aux autres que tu en oublies l'essentiel : toi. Voici 5 rappels doux pour revenir à ton cœur."
 ---
 

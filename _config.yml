@@ -16,6 +16,9 @@ permalink: /blog/:year/:month/:day/:title/
 # Markdown
 markdown: kramdown
 
+# Autoriser publications futures (pour épingler Bienvenue en haut)
+future: true
+
 # Defaults pour les posts
 defaults:
   - scope:
