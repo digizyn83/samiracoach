@@ -1,6 +1,6 @@
 # Jekyll config minimal pour samiracoach.fr
 title: "Samira Coach — Femme, foi & équilibre"
-description: "Blog de Samira Ben Bahou, coach musulmane"
+description: "Blog de Samira, coach musulmane"
 url: "https://samiracoach.fr"
 baseurl: ""
 
@@ -15,6 +15,11 @@ permalink: /blog/:year/:month/:day/:title/
 
 # Markdown
 markdown: kramdown
+
+# Collections
+collections:
+  ebooks:
+    output: false
 
 # Autoriser publications futures (pour épingler Bienvenue en haut)
 future: true

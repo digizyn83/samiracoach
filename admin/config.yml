@@ -2,7 +2,12 @@ backend:
   name: github
   repo: digizyn83/samiracoach
   branch: main
-  auth_type: pkce
+
+# Mode local (aperçu/test sans mise en ligne — actif uniquement sur localhost)
+local_backend: true
+
+# Logo de Samira sur l'écran de connexion de l'admin
+logo_url: /admin/samira-logo.svg
 
 locale: fr
 
@@ -14,6 +19,25 @@ slug:
   clean_accents: false
 
 collections:
+  # ═══ BOUTIQUE : les e-books ═══
+  - name: "ebooks"
+    label: "E-books (boutique)"
+    label_singular: "E-book"
+    folder: "_ebooks"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{price}}€"
+    fields:
+      - { label: "Titre du livre", name: "title", widget: "string" }
+      - { label: "Prix (en €)", name: "price", widget: "number", value_type: "int", min: 0, hint: "Juste le nombre, ex : 17" }
+      - { label: "Nombre de pages", name: "pages", widget: "number", value_type: "int", required: false }
+      - { label: "Description", name: "description", widget: "text", hint: "2 à 4 lignes qui donnent envie de l'acheter" }
+      - { label: "Couverture (image)", name: "cover", widget: "image", required: false, hint: "Laisse vide pour une jolie couverture colorée automatique" }
+      - { label: "Lien Payhip (bouton Acheter)", name: "payhip_url", widget: "string", hint: "Le lien de ton livre sur Payhip, ex : https://payhip.com/b/XXXXX" }
+      - { label: "Ordre d'affichage", name: "order", widget: "number", value_type: "int", required: false, default: 1, hint: "1 = affiché en premier" }
+
+  # ═══ BLOG : les articles ═══
   - name: "articles"
     label: "Articles"
     folder: "_posts"

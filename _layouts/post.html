@@ -14,6 +14,35 @@
 {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}
 <meta property="og:locale" content="fr_FR">
 
+<!-- Schema.org BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | strip_html | truncate: 160 | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "url": "{{ page.url | absolute_url }}",
+  "image": "{% if page.image %}{{ page.image }}{% else %}https://samiracoach.fr/og-image.jpg{% endif %}",
+  "author": {
+    "@type": "Person",
+    "name": "Samira",
+    "url": "https://samiracoach.fr/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Samira",
+    "url": "https://samiracoach.fr/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "inLanguage": "fr"
+}
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -396,7 +425,7 @@ body::after {
     <a href="/confidentialite.html">Confidentialite</a>
     <a href="/cgv.html">CGV</a>
   </div>
-  <p>&copy; 2025 Samira Ben Bahou &middot; Tous droits reserves</p>
+  <p>&copy; 2025 Samira &middot; Tous droits reserves</p>
 </footer>
 
 </body>
