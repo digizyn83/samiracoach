@@ -2,6 +2,7 @@ backend:
   name: github
   repo: digizyn83/samiracoach
   branch: main
+  base_url: https://samira-cms-auth.super-frost-a263.workers.dev
 
 # Mode local (aperçu/test sans mise en ligne — actif uniquement sur localhost)
 local_backend: true
