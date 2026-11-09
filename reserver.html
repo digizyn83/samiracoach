@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta http-equiv="refresh" content="0; url=https://cal.com/samiracoach">
+  <script>
+const prestations = ["l-appel-d-urgence", "la-consultation", "formule-declic", "realise-toi", "transforme-toi", "seance-decouverte"];
+const choix = new URLSearchParams(window.location.search).get("seance");
+const destination = prestations.includes(choix) ? choix : "";
+window.location.replace("https://cal.com/samiracoach" + (destination ? "/" + destination : ""));
+</script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.eu; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://app.cal.eu; connect-src https://app.cal.eu;">
